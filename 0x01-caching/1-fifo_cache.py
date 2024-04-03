@@ -3,7 +3,7 @@
 """
 from collections import OrderedDict
 
-from base_caching import BaseCaching
+BaseCaching = __import__("base_caching").BaseCaching
 
 
 class FIFOCache(BaseCaching):
