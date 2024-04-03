@@ -3,7 +3,7 @@
 """
 from collections import OrderedDict
 
-BaseCaching = __import__("base_caching").BaseCaching
+from base_caching import BaseCaching
 
 
 class FIFOCache(BaseCaching):
@@ -16,11 +16,12 @@ class FIFOCache(BaseCaching):
 
     def put(self, key, item):
         """Adds an item in the cache."""
-        if key is not None or item is not None:
-            self.cache_data[key] = item
-            if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-                first_key, _ = self.cache_data.popitem(False)
-                print("DISCARD:", first_key)
+        if key is None or item is None:
+            return
+        self.cache_data[key] = item
+        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
+            first_key, _ = self.cache_data.popitem(False)
+            print("DISCARD:", first_key)
 
     def get(self, key):
         """Retrieves an item by key."""
