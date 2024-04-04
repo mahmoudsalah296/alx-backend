@@ -6,7 +6,9 @@ BaseCaching = __import__("base_caching").BaseCaching
 
 
 class LIFOCache(BaseCaching):
-    """FIFOCache"""
+    """FIFOCache
+    last-In First-Out caching
+    """
 
     def __init__(self):
         """Initializes the cache."""
