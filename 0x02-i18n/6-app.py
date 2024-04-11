@@ -28,6 +28,7 @@ users = {
 
 def get_user() -> Union[Dict, None]:
     """Retrieves a user based on a user id."""
+
     login_id = request.args.get("login_as", "")
     if login_id:
         return users.get(int(login_id), None)
